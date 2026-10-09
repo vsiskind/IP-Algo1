@@ -94,7 +94,71 @@ def long_mayorASiete(s:list[str]) -> bool:
         i += 1
     return res
 
+# 1.10)
+def es_palindromo(s):
+    medio = len(s) / 2
+    res = True
+    i = 0
+    j = len(s) - 1
+    while i < medio and res:
+        if s[i] != s[j]:
+            res = False
+        i += 1
+        j -= 1
+    return res
 
+# 1.11)
+def iguales_consecutivos(seq:list[int]) -> bool:
+    i:int = 0
+    j:int = 1
+    k:int = 2
+    res:bool = False
+    while k < len(seq) and not(res):
+        if seq[i] == seq[j] == seq[k]:
+            res = True
+        i += 1
+        j += 1
+        k += 1
+    return res
+
+# 1.12)
+def vocales_distintas(string: str) -> bool:
+    lista_vocales:list[str] = ['a', 'e', 'i', 'o', 'u']
+    vocales_distintas:list[str] = []
+    i:int = 0
+    while i < len(string) and len(vocales_distintas) < 3:
+        if string[i] in lista_vocales and not(string[i] in vocales_distintas):
+            vocales_distintas.append(string[i])
+        i += 1
+    return len (vocales_distintas) == 3
+
+# 1.13)
+def pos_secuencia_ordenada_mas_larga(seq:list[int]) -> int:
+    start_index:int = 0
+    max_length:int = 0
+    i:int = 0
+    while i < len(seq):
+        j:int = 0
+        sorted_length:int = 0
+        while i+j < len(seq) - 1 and seq[i+j] <= seq[i+j+1]:
+            sorted_length += 1
+            j += 1
+        if sorted_length > max_length:
+            max_length = sorted_length
+            start_index = i
+        i += 1
+    return start_index
+
+# 1.14)
+def cantidad_digitos_impares(seq:list[int]) -> int:
+    impar_counter:int = 0
+    for i in seq:
+        while i > 0:
+            digito:int = i % 10
+            if digito % 2 != 0:
+                impar_counter += 1
+            i = i // 10
+    return impar_counter
 
 
 # Ejercicio 2:
