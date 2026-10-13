@@ -21,6 +21,7 @@ def factorial_de_dos():
 def perimetro ():
     return 2 * math.pi
 
+
 # Ejercicio 2:
 # 2.1)
 def imprimir_saludo (nombre:str):
@@ -52,6 +53,7 @@ def cantidad_de_pizzas(comensales:int, min_cant_de_porciones:int) -> int:
     total_porciones = comensales * min_cant_de_porciones
     return math.ceil(total_porciones / 8) 
 
+
 # Ejercicio 3:
 # 3.1)
 def alguno_es_0(numero1:int, numero2:int) -> bool:
@@ -69,6 +71,7 @@ def es_nombre_largo(nombre:str) -> bool:
 def es_bisiesto(anio:int) -> bool:
     res:bool = anio % 400 == 0 or (anio % 4 == 0) and (anio % 100 != 0)
     return res
+
 
 # Ejercicio 4: 
 # 4.1)
@@ -88,6 +91,7 @@ def es_peso_util(peso:int) -> bool:
 # 4.3)
 def sirve_pino(altura:float) -> bool:
     return es_peso_util(peso_pino(altura))
+
 
 # Ejercicio 5:
 # 5.1)
@@ -140,6 +144,7 @@ def verano(sexo:str, edad:int):
     else:
         print('Te toca trabajar')
 
+
 # Ejercicio 6:
 # 6.1)
 def imprimir_del_1_al_10():
@@ -174,10 +179,12 @@ def time_travel_aristoteles(partida:int):
         partida -= 20
         print('Viajo veinte años al pasado, estamos en el año ' + str(partida))
 
+
 # Ejercicio 7:
 def time_travel_aristoteles2(partida:int):
     for i in range (partida, 384, -20):
         print('Viajo veinte años al pasado, estamos en el año ' + str(i))
+
 
 # Bonus:
 def es_primo (n:int) -> bool:
