@@ -1,4 +1,5 @@
 import math
+import random
 
 # Ejercicio 1:
 # 1.1)
@@ -311,9 +312,9 @@ def quien_gana_tateti(matriz:list[str]) -> int:
     horizontal:int = chequeo_horizontal(matriz)
     vertical:int = chequeo_vertical(matriz)
     diagonal:int = chequeo_diagonal(matriz)
-    if (horizontal + vertical + diagonal) == 4:
+    if (horizontal + vertical) == 2 or diagonal == 0:
         res = 0
-    elif (horizontal + vertical + diagonal) == 5:
+    elif (horizontal + vertical) == 3 or diagonal == 1:
         res = 1
     return res
 
@@ -355,9 +356,90 @@ def columna_str(matriz:list[str], c:int) -> str:
     return res
 
 # Ejercicio 7:
+# 7.1)
+def lista_estudiantes() -> list[str]:
+    res:list[str] = []
+    nombre:str = input('Agregar nombre a la lista o escribir \'listo\' para terminar: ')
+    while nombre != 'listo':
+        res.append(nombre)
+        nombre = input('Agregar nombre a la lista o escribir \'listo\' para terminar: ')
+    return res
 
+# 7.2)
+def historial_SUBE() -> list[tuple]:
+    res:list[tuple] = []
+    accion:str = input('Elegir C para cargar creditos, ' \
+    'D para descontar creditos, o X para finalizar la simulacion: ')
+    if accion != 'C' and accion != 'D' and accion != 'X':
+        print('Accion desconocida')
+        accion = input('Elegir C para cargar creditos, ' \
+    'D para descontar creditos, o X para finalizar la simulacion: ')
+    while accion == 'C' or accion == 'D':
+        monto:int = int(input('Cuantos creditos queres cargar/descontar? '))
+        transaccion:tuple = (accion, monto)
+        res.append(transaccion)
+        accion = input('Elegir C para cargar creditos, ' \
+    'D para descontar creditos, o X para finalizar la simulacion: ')        
+    return res
+
+# 7.3)
+def jugar_siete_y_medio() -> list[int]:
+    historial_cartas:list[int] = []
+    cartas:list[int] = [1,2,3,4,5,6,7,10,11,12]
+    carta = random.choice(cartas)
+    suma:float = sumar_cartas(0, carta)
+    historial_cartas.append(carta)
+    accion:str = 'seguir'
+    while accion == 'seguir' and suma <= 7.5:
+        print('Tu suma es: ' + str(suma))
+        accion = input('Elegir \'seguir\' para seguir jugando o \'parar\' para pararse: ')
+        if accion != 'seguir' and accion != 'parar':
+            accion = input('accion desconocida. Elegir \'seguir\' para seguir jugando o \'parar\' para pararse: ')
+        elif accion == 'seguir':
+            carta = random.choice(cartas)
+            suma = sumar_cartas(suma, carta)
+            historial_cartas.append(carta)
+    if suma > 7.5:
+        print('Perdiste!')
+    return historial_cartas
+
+def sumar_cartas(suma:float, carta:int) -> float:
+    if carta > 7:
+        suma += 0.5
+    else:
+        suma += carta
+    return suma
     
-tateti = ['OOO',
-          'OXX',
-          'XXO']
-print(quien_gana_tateti(tateti))
+# 7.4)
+def password_strength(password:str) -> str:
+    strength:str = 'ROJA'
+    contiene_mayuscula:bool = False
+    contiene_minuscula:bool = False
+    contiene_digito:bool = False
+    length:int = len(password)
+
+    if length >= 5:
+        strength = 'AMARILLA'
+
+    for i in password:
+        if 'A' <= i <= 'Z':
+            contiene_mayuscula = True
+        elif 'a' <= i <='z':
+            contiene_minuscula = True
+        elif '0' <= i <= '9':
+            contiene_digito = True
+
+    if contiene_mayuscula and contiene_minuscula and contiene_digito:
+        strength = 'VERDE'
+        
+    return strength
+
+password = 'Valu=Awesome16'
+print(password_strength(password))
+
+# Bonus:
+def sumarTodaLaMatriz(matriz:list[list[int]]) -> int:
+    res:int = 0
+    for fila in matriz:
+        res += suma_total(fila)
+    return res
