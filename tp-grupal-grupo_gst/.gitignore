@@ -1,0 +1,6 @@
+__pycache__
+venv/
+.coverage*
+coverage.json
+htmlcov/
+.mypy_cache
