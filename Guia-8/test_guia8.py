@@ -195,6 +195,23 @@ class test_tienda_de_ropa(unittest.TestCase):
         guia8.actualizar_stock(inventario, "Camisa", 10)
         valor_total = guia8.calcular_valor_inventario(inventario)
         self.assertEqual(valor_total, 1100.0)
+
+class test_archivos_basicos(unittest.TestCase):
+    def test_contar_lineas(self):
+        nombre_archivo:str = 'Guia-8/archivos/texto.txt'
+        self.assertEqual(guia8.contar_lineas(nombre_archivo), 4)
+
+    def test_existe_palabra(self):
+        nombre_archivo:str = 'Guia-8/archivos/texto.txt'
+        palabra:str = 'River'
+        self.assertTrue(guia8.existe_palabra(nombre_archivo, palabra))
+        self.assertFalse(guia8.existe_palabra(nombre_archivo, 'Boca'))
+
+    def test_cantidad_de_apariciones(self):
+        nombre_archivo:str = 'Guia-8/archivos/texto.txt'
+        palabra:str = 'Valu'
+        self.assertEqual(guia8.cantidad_de_apariciones(nombre_archivo, palabra), 4)
+       
         
 
 if __name__ == '__main__':

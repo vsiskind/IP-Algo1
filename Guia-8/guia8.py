@@ -347,3 +347,53 @@ def calcular_valor_inventario(inventario:dict[str, dict[str, float | int]]) -> f
     for producto in inventario.keys():
         valor_total += inventario[producto]['precio'] * inventario[producto]['cantidad']
     return valor_total
+
+
+# Ejercicio 19:
+# 19.1)
+def contar_lineas(nombre_archivo:str) -> int:
+    with open(nombre_archivo, 'r') as file:
+        lineas:list[str] = file.readlines()
+    return len(lineas)
+
+# 19.2)
+def existe_palabra(nombre_archivo:str, palabra:str) -> bool:
+    contiene_palabra:bool = False
+    with open(nombre_archivo, 'r') as file:
+        for linea in file:
+            if palabra in linea:
+                contiene_palabra = True
+    return contiene_palabra
+
+# 19.3)
+def cantidad_de_apariciones(nombre_archivo:str, palabra:str) -> int:
+    cant_de_apariciones:int = 0
+    with open(nombre_archivo, 'r') as file:
+        for linea in file:
+            print(linea)
+            if palabra in linea:
+                cant_de_apariciones += cant_de_apariciones_por_linea(linea, palabra)
+    return cant_de_apariciones
+
+def cant_de_apariciones_por_linea(linea:str, palabra:str) -> int:
+    counter:int = 0
+    palabras_en_linea:list[str] = separar_string_en_palabras(linea)
+    for i in palabras_en_linea:
+        if i == palabra:
+            counter += 1 
+    return counter
+
+def separar_string_en_palabras(linea:str) -> list[str]:
+    lista_separadores:list[str] = [' ', '.', ',', ';', ':', '\"', '\'', '¡', '!', '¿', '?', '(', ')', '[', ']', '{', '}', '<', '>', '\n']
+    lista_palabras:list[str] = []
+    temp_palabra:str = ''
+    for i in linea:
+        if i not in lista_separadores:
+            temp_palabra += i
+        else:
+            lista_palabras.append(temp_palabra)
+            temp_palabra = ''
+    if temp_palabra != '':
+        lista_palabras.append(temp_palabra)
+
+    return lista_palabras
