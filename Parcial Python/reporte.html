@@ -1,0 +1,500 @@
+<h1>Parcial - tema1</h1>
+<p>Nota: 10.0 / 10.0 (APROBADO)</p>
+<pre><code>puntaje ej1: 2
+puntaje ej2: 0.5
+puntaje ej3: 0.5
+puntaje ej4: 2
+puntaje ej5: 2
+puntaje ej6: 0.5
+puntaje ej7: 2
+puntaje ej8: 0.5
+</code></pre>
+<h2>Datos del alumno</h2>
+<p>Nombre: Valentin Siskind</p>
+<p>DNI: 50387673</p>
+<p>LU: </p>
+<p>Maquina: 24-03</p>
+<h2>Enunciado</h2>
+<!doctype html>
+<html>
+<head>
+  <link rel="icon" href="data:,">
+  <link href="css/style.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <style>
+    th, td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .conditions {
+        margin-left: 20px;
+    }
+</style>
+</head>
+
+<body style="width: 50%;margin: 1% auto;">
+
+<div>
+<h1> Parcial Python - Tema 1 - Turno tarde</h1>
+
+<h2> Importante </h2>
+
+<ul>
+  <li>El parcial se aprueba con 6 puntos</li>
+  <li>Template de funciones a implementar <a href="#" onclick="forceDownload('/parcial/Template_t1.py','Template_t1.py');">acá</a><br></li>
+  <li>Lista de funciones permitidas <a href="/static/python_permitidas.html">acá</a></li>
+  <li>Para testear el código pueden usar <a href="#" onclick="forceDownload('/parcial/tema1-test.py', 'tema1-test.py')">este</a> archivo que ya cuenta con todo lo necesario para desarrollar sus propios tests (este archivo no se entrega)</li>
+</ul>
+
+Implementar las siguientes especificaciones en Python.
+
+<form name="form1" action="/submit_examen" method="post" enctype="multipart/form-data" onsubmit="return validaciones(event)">
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 1 [2 puntos]</h3>
+
+<p>Implementar la función ejercicio1:</p>
+
+<p> problema ejercicio1 (in <i>s</i>: seq⟨Z⟩, in <i>objetivo</i>: Z) : Z x Z {<br>
+  &nbsp; <strong>requiere:</strong> { Existen al menos dos posiciones <i>i</i> &lt; <i>j</i> en rango tales que s[i] + s[j] = <i>objetivo</i> }<br>
+  &nbsp; <strong>asegura:</strong> { s[<i>res</i><sub>0</sub>] + s[<i>res</i><sub>1</sub>] = <i>objetivo</i> }<br>
+  &nbsp; <strong>asegura:</strong> { <i>res</i><sub>0</sub> &lt; <i>res</i><sub>1</sub> }<br>
+  &nbsp; <strong>asegura:</strong> { Sean <i>i</i> y <i>j</i> (con <i>i</i> &lt; <i>j</i>) dos posiciones cualesquiera de <i>s</i> tales que s[i] + s[j] = <i>objetivo</i>, entonces <i>res</i><sub>1</sub> - <i>res</i><sub>0</sub> &lt;= j - i }<br>
+}<br>
+</p>
+
+<hr style="margin: 25px 0; border: none; border-top: 1px solid #ccc;">
+
+  <h3 style="color:#1A5276">Ejercicio 2 [0,5 puntos]</h3>
+  <p>
+    Conteste marcando la opción correcta. <br/>
+    <b>Teniendo en cuenta la especificación del ejercicio anterior: ¿Qué nombre le pondrías a la función especificada?</b> <br>
+
+  <input type="radio" name="mchoice_1" id="opcion1_1" value="1" />
+      <label for="opcion1_1">distancia_entre_las_primeras_dos_posiciones_que_suman_objetivo</label> <br>
+  <input type="radio" name="mchoice_1" id="opcion2_1" value="2" />
+      <label for="opcion2_1">par_de_posiciones_mas_cercano_que_suma_objetivo</label> <br>
+  <input type="radio" name="mchoice_1" id="opcion3_1" value="3" />
+      <label for="opcion3_1">algun_par_de_posiciones_que_suma_objetivo</label> <br>
+  <input type="radio" name="mchoice_1" id="opcion4_1" value="4" />
+      <label for="opcion4_1">Ninguna de las opciones anteriores describe adecuadamente el problema</label> <br>
+  </p>
+
+<hr style="margin: 25px 0; border: none; border-top: 1px solid #ccc;">
+
+  <h3 style="color:#1A5276">Ejercicio 3 [0,5 puntos]</h3>
+  <p>
+    Conteste marcando la opción correcta, teniendo en cuenta el problema <code>ejercicio1</code>. <br/>
+    <b>Si <code>s = [1, 6, 2, 5, 3, 4]</code> y <code>objetivo = 7</code>, entonces:</b> <br>
+
+  <input type="radio" name="mchoice_2" id="opcion1_2" value="1" />
+      <label for="opcion1_2">Solo <code>res = (0, 1)</code> es una salida válida</label> <br>
+  <input type="radio" name="mchoice_2" id="opcion2_2" value="2" />
+      <label for="opcion2_2">Solo <code>res = (2, 3)</code> es una salida válida</label> <br>
+  <input type="radio" name="mchoice_2" id="opcion3_2" value="3" />
+      <label for="opcion3_2">Tanto <code>res = (0, 1)</code>, como <code>res = (2, 3)</code> y <code>res = (4, 5)</code> son salidas válidas</label> <br>
+  <input type="radio" name="mchoice_2" id="opcion4_2" value="4" />
+      <label for="opcion4_2"><code>res = (1, 4)</code> también es una salida válida, además de las anteriores</label> <br>
+  </p>
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 4 [2 puntos]</h3>
+
+  <p>En la cocina de un restaurante, los pedidos se van apilando a medida que llegan (se prepara primero el que llegó
+    último). Cada pedido es una tupla con el número de mesa y un booleano que indica si es un pedido express (True) o no (False).
+    Se desea separar de la pila los pedidos express, pasándolos a una nueva pila, y dejar en la pila original
+    solamente los pedidos que no son express. Implementar la función separar_pedidos_express.
+  </p>
+
+  <p> problema separar_pedidos_express (inout <i>pedidos</i>: Pila⟨Z x Bool⟩) : Pila⟨Z⟩ {<br>
+  &nbsp; <strong>modifica:</strong> { <i>pedidos</i> }<br>
+  &nbsp; <strong>asegura:</strong> { <i>res</i> contiene exactamente los números de mesa de las tuplas cuya segunda componente en <i>pedidos@pre</i> era True, en el mismo orden relativo (de tope a base) en que se encontraban en <i>pedidos@pre</i> }<br>
+  &nbsp; <strong>asegura:</strong> { <i>pedidos</i> contiene exactamente las tuplas de <i>pedidos@pre</i> cuya segunda componente era False, en el mismo orden relativo (de tope a base) en que se encontraban originalmente }<br>
+  }<br>
+  </p>
+
+  <pre style="background-color: #f0f0f0; /* Color de fondo del recuadro */
+padding: 2px; /* Espacio interior */
+border: 1px solid #ccc; /* Borde del recuadro */
+border-radius: 5px; /* Bordes redondeados */">
+Ejemplo: Si <b>pedidos</b> contiene (de tope a base): 
+<b>[(5, True), (3, False), (8, True), (2, False)]</b>, entonces
+<b>separar_pedidos_express(pedidos)</b> debe devolver una pila que (de tope a base) 
+contiene <b>[5, 8]</b>, y <b>pedidos</b> queda (de tope a base) con <b>[(3, False), (2, False)]</b>.
+
+</pre>
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 5 [2 puntos]</h3>
+
+  <p>Implementar la función ejercicio5:</p>
+
+  <p> problema ejercicio5 (inout <i>A</i>: seq⟨seq⟨Z⟩⟩) {<br>
+  &nbsp; <strong>requiere:</strong> { |A| &gt; 0 }<br>
+  &nbsp; <strong>requiere:</strong> { Todas las filas de <i>A</i> tienen la misma longitud, la cual es estrictamente mayor a 0 }<br>
+  &nbsp; <strong>requiere:</strong> { Todos los elementos de <i>A</i> son distintos entre sí }<br>
+  &nbsp; <strong>modifica:</strong> { <i>A</i> }<br>
+  &nbsp; <strong>asegura:</strong> { <i>A</i> tiene exactamente las mismas dimensiones que <i>A@pre</i> }<br>
+  &nbsp; <strong>asegura:</strong> { Sea <i>max</i> el máximo elemento de <i>A@pre</i>, y sea <i>i</i> la fila tal que existe una columna <i>j</i> con A@pre[i][j] = <i>max</i>, entonces A[i][k] = 2 * A@pre[i][k] para todo <i>k</i> en rango }<br>
+  &nbsp; <strong>asegura:</strong> { Sea <i>max</i> el máximo elemento de <i>A@pre</i>, y sea <i>i</i> la fila tal que existe una columna <i>j</i> con A@pre[i][j] = <i>max</i>, entonces A[f][k] = A@pre[f][k] para todo <i>f</i> en rango y todo <i>k</i> en rango tal que <i>f</i> ≠ <i>i</i> }<br>
+  }<br>
+  </p>
+
+<hr style="margin: 25px 0; border: none; border-top: 1px solid #ccc;">
+
+  <h3 style="color:#1A5276">Ejercicio 6 [0,5 puntos]</h3>
+  <p>
+    Conteste marcando la opción correcta. <br/>
+    <b>Teniendo en cuenta la especificación del ejercicio anterior: ¿Qué nombre le pondrías a la función especificada?</b> <br>
+
+  <input type="radio" name="mchoice_3" id="opcion1_3" value="1" />
+      <label for="opcion1_3">duplicar_matriz</label> <br>
+  <input type="radio" name="mchoice_3" id="opcion2_3" value="2" />
+      <label for="opcion2_3">duplicar_fila_del_maximo</label> <br>
+  <input type="radio" name="mchoice_3" id="opcion3_3" value="3" />
+      <label for="opcion3_3">duplicar_columna_del_maximo</label> <br>
+  <input type="radio" name="mchoice_3" id="opcion4_3" value="4" />
+      <label for="opcion4_3">Ninguna de las opciones anteriores describe adecuadamente el problema</label> <br>
+  </p>
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 7 [2 puntos]</h3>
+
+  <p>Una plataforma de e-learning registra, para cada estudiante, la lista de calificaciones obtenidas en los
+    distintos cursos que realizó a lo largo del tiempo. Estos datos se almacenan en un diccionario cuyas claves son
+    los nombres de los estudiantes y cuyos valores son secuencias con las calificaciones (de 1 a 10) obtenidas en
+    cada curso. Diremos que un estudiante es <i>destacado</i> si todas sus calificaciones son mayores o iguales a
+    una nota mínima dada. Implementar la función estudiantes_destacados_por_cantidad_de_cursos, que agrupa a los
+    estudiantes destacados según la cantidad de cursos que realizaron:</p>
+
+  <p> problema estudiantes_destacados_por_cantidad_de_cursos (in <i>calificaciones</i>: dict⟨String, seq⟨Z⟩⟩, in <i>nota_minima</i>: Z) : dict⟨Z, seq⟨String⟩⟩ {<br>
+  &nbsp; <strong>requiere:</strong> { Para toda clave <i>c</i> de <i>calificaciones</i>, <i>calificaciones</i>[c] no es vacía }<br>
+  &nbsp; <strong>asegura:</strong> { Una clave <i>n</i> de <i>res</i> existe si y sólo si existe al menos un estudiante destacado <i>c</i> que haya realizado exactamente <i>n</i> cursos, es decir, tal que |<i>calificaciones</i>[c]| = <i>n</i> }<br>
+  &nbsp; <strong>asegura:</strong> { Para toda clave <i>n</i> de <i>res</i>, <i>res</i>[n] contiene exactamente los nombres de los estudiantes destacados que realizaron exactamente <i>n</i> cursos }<br>
+  }<br>
+ Nota: Un estudiante <i>c</i> de <i>calificaciones</i> es destacado si todas las calificaciones de <i>calificaciones</i>[c] son mayores o iguales a <i>nota_minima</i>
+</p>
+
+  <pre style="background-color: #f0f0f0; /* Color de fondo del recuadro */
+padding: 2px; /* Espacio interior */
+border: 1px solid #ccc; /* Borde del recuadro */
+border-radius: 5px; /* Bordes redondeados */">
+Ejemplo: <b>estudiantes_destacados_por_cantidad_de_cursos({"Ana": [10, 9], 
+  "Beto": [8], "Cami": [7, 8, 9], "Dani": [6, 3]}, 7)</b> debe devolver 
+<b>{2: ["Ana"], 1: ["Beto"], 3: ["Cami"]}</b> 
+(Dani no es destacado, ya que tiene una calificación menor a 7)
+</pre>
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 8 [0,5 puntos]</h3>
+
+  <p>Conteste marcando la opción correcta.</p>
+
+  <h4 style="color:#1A5276">Dado el siguiente código en Python, considere cobertura de líneas vs. cobertura de decisiones (branches):</h4>
+
+  <pre style="background-color: #f0f0f0; padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
+  def ajustar(x: int, y: int) -> int:
+      resultado = x
+      if x > y:
+          resultado = resultado - y
+      resultado = resultado * 2
+      return resultado
+  </pre>
+
+  <p>Cada caso de prueba se indica como (x, y). <b>¿Cuál de los siguientes conjuntos de casos de test logra
+  100% de cobertura de líneas pero NO 100% de cobertura de decisiones (branches)?</b></p>
+
+  <p>
+    <input type="radio" name="mchoice_4" id="opcion1_5" value="1" />
+    <label for="opcion1_5">Casos de prueba: (5, 2)</label> <br>
+    <input type="radio" name="mchoice_4" id="opcion2_5" value="2" />
+    <label for="opcion2_5">Casos de prueba: (1, 3)</label> <br>
+    <input type="radio" name="mchoice_4" id="opcion3_5" value="3" />
+    <label for="opcion3_5">Casos de prueba: (5, 2), (1, 3)</label> <br>
+    <input type="radio" name="mchoice_4" id="opcion4_5" value="4" />
+    <label for="opcion4_5">Ninguno de los conjuntos anteriores logra 100% de cobertura de líneas</label> <br>
+  </p>
+
+      <hr style="width: 100%;">
+      <h3 style="color:#1A5276">Adjunta el archivo con tu solución:</h3>
+      <p><b style="color:red">Solo se puede adjuntar 1 archivo de extensión .py. En caso de haber desarrollado tests
+          propios, no deben ser entregados.</b></p>
+
+      <label for="archivo">Seleccionar archivo a enviar:</label>
+      <input type="file" id="archivo" name="archivo" required accept=".py,text/x-python" />
+
+      <input type="submit" value="Enviar" style="background-color: #1A5276; border-radius: 5px;
+                margin-top:10px;padding: 10px 150px;color: #FFFFFF;
+                font-size: 20px;cursor: pointer; width:100%">
+
+    </form>
+  </div>
+<script>
+  function validaciones(event) {
+    // Obtiene todos los inputs tipo radio del formulario
+      const radioGroups = document.querySelectorAll('input[type="radio"]');
+      const groupedByName = {};
+
+      // Agrupar radios por su atributo name
+      radioGroups.forEach(radio => {
+        if (!groupedByName[radio.name]) {
+          groupedByName[radio.name] = [];
+        }
+        groupedByName[radio.name].push(radio);
+      });
+
+      // Verificar que cada grupo de radios tenga al menos uno seleccionado
+      for (const groupName in groupedByName) {
+        const radios = groupedByName[groupName];
+        const isChecked = radios.some(radio => radio.checked);
+
+        if (!isChecked) {
+          alert(`Debes seleccionar una opción para la pregunta ${groupName}`);
+          return false; // Detener la validación si falta alguna opción
+        }
+      }
+
+      var confirmacion = confirm("Confirmo que revisé mis respuestas y que quiero entregar mi examen");
+      if (!confirmacion) {
+          event.preventDefault();
+          event.returnValue = false;
+          return false;
+        }
+        event.returnValue = true;
+        return true;
+    }
+
+// registro una funcion para mostrar el archivo cuando se adjunta.
+// de esa forma evitamos que se adjunten otros archivos por error
+document
+  .getElementById('archivo')
+  .addEventListener(
+      'change',
+      function () {
+          var fr = new FileReader();
+          fr.onload = function () {
+              alert(this.result);
+          };
+          fr.readAsText(this.files[0]);
+      }
+  );
+
+// para forzar a bajar el template de pytest y que no se pueda abrir en un nuevo tab
+// (el browser intenta mostrar el codigo como HTML y el formato se ve raro)
+function forceDownload(url, filename) {
+  fetch(url).then(function(t) {
+    return t.blob().then((b) => {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(b);
+      a.setAttribute("download", filename);
+      a.click();
+    });
+  });
+}
+</script>
+</body>
+
+</html>
+
+<h2>Solucion entregada por el alumno</h2>
+<pre><code>from queue import LifoQueue as Pila
+
+# Ejercicio 1
+
+def ejercicio1(s: list[int], objetivo: int) -&gt; tuple[int, int]:
+    res:tuple[int, int] = (0, 1)
+    diferencia:int = len(s)
+    for i in range(len(s)):
+        j = i + 1
+        while j &lt; len(s):
+            if s[i] + s[j] == objetivo:
+                if j-i &lt;= diferencia:
+                    res = (i ,j)
+                    diferencia = j-i
+            j += 1
+    return res
+
+
+# Ejercicio 4
+
+def separar_pedidos_express(pedidos: Pila[tuple[int, bool]]) -&gt; Pila[int]:
+    lista_pedidos:list[tuple[int, bool]] = []
+    pedidos_express:Pila[int] = Pila()
+
+    while not pedidos.empty():
+        lista_pedidos.append(pedidos.get())
+
+    for i in range(len(lista_pedidos) -1, -1, -1):
+        pedido:tuple[int, bool] = lista_pedidos[i]
+        if pedido[1] == True:
+            pedidos_express.put(pedido[0])
+        else:
+            pedidos.put(pedido)
+
+    return pedidos_express
+
+
+# Ejercicio 5
+
+def ejercicio5(A: list[list[int]]) -&gt; None:
+    ubicacion_max:tuple[int, int] = encontrar_ubicacion_maximo(A)
+    fila_max = ubicacion_max[0]
+    col_max = ubicacion_max[1]
+    for i in range(len(A[fila_max])):
+        A[fila_max][i] *= 2
+
+def encontrar_ubicacion_maximo(matriz: list[list[int]]) -&gt; tuple[int, int]:
+    max:int = matriz[0][0]
+    ubicacion_max:tuple[int, int] = (0,0)
+    for i in range(len(matriz)):
+        for j in range(len(matriz[0])):
+            if matriz[i][j] &gt; max:
+                max = matriz[i][j]
+                ubicacion_max = (i, j)
+    return ubicacion_max
+
+
+# Ejercicio 7
+
+def estudiantes_destacados_por_cantidad_de_cursos(calificaciones: dict[str, list[int]], nota_minima: int) -&gt; dict[int, list[str]]:
+    cant_cursos_dict:dict[int, list[str]] = {}
+    for estudiante in calificaciones.keys():
+        notas:list[int] = calificaciones[estudiante]
+        if es_estudiante_destacado(notas, nota_minima):
+            if len(notas) not in cant_cursos_dict.keys():
+                cant_cursos_dict[len(notas)] = [estudiante]
+            else:
+                cant_cursos_dict[len(notas)].append(estudiante)
+    return cant_cursos_dict
+
+def es_estudiante_destacado(lista_notas:list[int], nota_minima:int) -&gt; bool:
+    estudiante_destacado:bool = True
+    for i in lista_notas:
+        if i &lt; nota_minima:
+            estudiante_destacado = False
+    return estudiante_destacado
+
+# Entrega Valentin Siskind 15:40
+</code></pre>
+<h2>Resultado de la compilacion</h2>
+<pre><code>
+</code></pre>
+<h2>Ejecucion de los tests</h2>
+<h3>tema1-test-ej1.py.compilacion.out</h3>
+<p>Puntaje del ej: 2 / 2</p>
+<pre><code>test_ceros (__main__.Ej1Test.test_ceros) ... ok
+test_ejemplo (__main__.Ej1Test.test_ejemplo) ... ok
+test_empate_al_principio_y_al_final (__main__.Ej1Test.test_empate_al_principio_y_al_final) ... ok
+test_lista_larga_par_al_final (__main__.Ej1Test.test_lista_larga_par_al_final) ... ok
+test_mismo_valor_en_varios_pares (__main__.Ej1Test.test_mismo_valor_en_varios_pares) ... ok
+test_no_usa_dos_veces_la_misma_posicion (__main__.Ej1Test.test_no_usa_dos_veces_la_misma_posicion) ... ok
+test_objetivo_cero (__main__.Ej1Test.test_objetivo_cero) ... ok
+test_primer_par_que_suma_no_es_el_mas_cercano (__main__.Ej1Test.test_primer_par_que_suma_no_es_el_mas_cercano) ... ok
+test_solo_dos_elementos (__main__.Ej1Test.test_solo_dos_elementos) ... ok
+test_unico_par_en_los_extremos (__main__.Ej1Test.test_unico_par_en_los_extremos) ... ok
+test_valores_negativos (__main__.Ej1Test.test_valores_negativos) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.004s
+
+OK
+
+</code></pre>
+<h3>mchoice.json-ej2.compilacion.out</h3>
+<p>Puntaje del ej: 0.5 / 0.5</p>
+<pre><code>mchoice ej2: respuesta del alumno=2, respuesta correcta=2
+
+Ran 1 test in 0 seconds
+
+OK
+
+</code></pre>
+<h3>mchoice.json-ej3.compilacion.out</h3>
+<p>Puntaje del ej: 0.5 / 0.5</p>
+<pre><code>mchoice ej3: respuesta del alumno=3, respuesta correcta=3
+
+Ran 1 test in 0 seconds
+
+OK
+
+</code></pre>
+<h3>tema1-test-ej4.py.compilacion.out</h3>
+<p>Puntaje del ej: 2 / 2</p>
+<pre><code>test_alternados_empezando_por_no_express (__main__.Ej4Test.test_alternados_empezando_por_no_express) ... ok
+test_ejemplo (__main__.Ej4Test.test_ejemplo) ... ok
+test_express_solo_en_la_base (__main__.Ej4Test.test_express_solo_en_la_base) ... ok
+test_misma_mesa_en_varios_pedidos (__main__.Ej4Test.test_misma_mesa_en_varios_pedidos) ... ok
+test_muchos_pedidos (__main__.Ej4Test.test_muchos_pedidos) ... ok
+test_ninguno_express (__main__.Ej4Test.test_ninguno_express) ... ok
+test_pila_vacia (__main__.Ej4Test.test_pila_vacia) ... ok
+test_todos_express (__main__.Ej4Test.test_todos_express) ... ok
+test_un_solo_pedido_express (__main__.Ej4Test.test_un_solo_pedido_express) ... ok
+test_un_solo_pedido_no_express (__main__.Ej4Test.test_un_solo_pedido_no_express) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.008s
+
+OK
+
+</code></pre>
+<h3>tema1-test-ej5.py.compilacion.out</h3>
+<p>Puntaje del ej: 2 / 2</p>
+<pre><code>test_ejemplo (__main__.Ej5Test.test_ejemplo) ... ok
+test_fila_del_maximo_con_cero_y_negativos (__main__.Ej5Test.test_fila_del_maximo_con_cero_y_negativos) ... ok
+test_matriz_1x1 (__main__.Ej5Test.test_matriz_1x1) ... ok
+test_matriz_mas_alta_que_ancha (__main__.Ej5Test.test_matriz_mas_alta_que_ancha) ... ok
+test_matriz_mas_ancha_que_alta (__main__.Ej5Test.test_matriz_mas_ancha_que_alta) ... ok
+test_maximo_en_la_primera_posicion (__main__.Ej5Test.test_maximo_en_la_primera_posicion) ... ok
+test_maximo_en_la_ultima_fila (__main__.Ej5Test.test_maximo_en_la_ultima_fila) ... ok
+test_todos_negativos (__main__.Ej5Test.test_todos_negativos) ... ok
+test_una_sola_columna (__main__.Ej5Test.test_una_sola_columna) ... ok
+test_una_sola_fila (__main__.Ej5Test.test_una_sola_fila) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.003s
+
+OK
+
+</code></pre>
+<h3>mchoice.json-ej6.compilacion.out</h3>
+<p>Puntaje del ej: 0.5 / 0.5</p>
+<pre><code>mchoice ej6: respuesta del alumno=2, respuesta correcta=2
+
+Ran 1 test in 0 seconds
+
+OK
+
+</code></pre>
+<h3>tema1-test-ej7.py.compilacion.out</h3>
+<p>Puntaje del ej: 2 / 2</p>
+<pre><code>test_agrupa_por_cantidad_de_cursos_y_no_por_notas (__main__.Ej7Test.test_agrupa_por_cantidad_de_cursos_y_no_por_notas) ... ok
+test_diccionario_vacio (__main__.Ej7Test.test_diccionario_vacio) ... ok
+test_ejemplo (__main__.Ej7Test.test_ejemplo) ... ok
+test_ningun_estudiante_destacado (__main__.Ej7Test.test_ningun_estudiante_destacado) ... ok
+test_nota_igual_a_la_minima (__main__.Ej7Test.test_nota_igual_a_la_minima) ... ok
+test_nota_minima_10 (__main__.Ej7Test.test_nota_minima_10) ... ok
+test_nota_minima_1_todos_destacados (__main__.Ej7Test.test_nota_minima_1_todos_destacados) ... ok
+test_todos_destacados_con_distinta_cantidad_de_cursos (__main__.Ej7Test.test_todos_destacados_con_distinta_cantidad_de_cursos) ... ok
+test_una_sola_nota_baja_al_principio_o_al_final (__main__.Ej7Test.test_una_sola_nota_baja_al_principio_o_al_final) ... ok
+test_varios_destacados_con_la_misma_cantidad_de_cursos (__main__.Ej7Test.test_varios_destacados_con_la_misma_cantidad_de_cursos) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.005s
+
+OK
+
+</code></pre>
+<h3>mchoice.json-ej8.compilacion.out</h3>
+<p>Puntaje del ej: 0.5 / 0.5</p>
+<pre><code>mchoice ej8: respuesta del alumno=1, respuesta correcta=1
+
+Ran 1 test in 0 seconds
+
+OK
+
+</code></pre>
+<p>FIN</p>
